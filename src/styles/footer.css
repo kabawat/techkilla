@@ -99,16 +99,12 @@
     overflow: hidden;
     position: relative;
     margin: 5px 0px;
-    left: -100%;
     transition: all 0.3s linear;
-    transform: translateX(45px)
 }
 
 .link_box:hover {
-    background: #fafafa;
     transform: translateX(0px);
     left: 0px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 a.link {
@@ -123,7 +119,6 @@ a.link {
     line-height: 1;
     font-family: 'Poppins', sans-serif;
 }
-
 
 span.text {
     opacity: 0;
@@ -286,8 +281,8 @@ footer fieldset {
 
 .btn_2 {
 
-    border: 1px solid #fdc632 !important;
-    background: #fdc632 !important;
+    /* border: 1px solid #fdc632 !important; */
+    /* background: #fdc632 !important; */
     color: #fff !important;
 }
 
@@ -387,6 +382,41 @@ footer .flex:last-child a {
     padding: 0.5rem;
     margin-right: 3px;
     text-align: center;
+}
+
+
+.rcw-conversation-container>.rcw-header {
+    background-color: #ffc107 !important;
+}
+
+/* 
+.rcw-message>.rcw-response {
+    background-color: black !important;
+} */
+.rcw-conversation-container .rcw-title {
+    font-weight: bold !important;
+    color: #fff !important;
+}
+
+.rcw-message-text {
+    background: #ddd !important;
+    color: #000;
+}
+.rcw-timestamp{
+    color: #000;
+}
+.rcw-input {
+    color: #000 !important;
+}
+
+.rcw-sender {
+    align-items: center !important;
+    justify-content: space-evenly !important;
+}
+
+.rcw-launcher {
+    background: #fdc632 !important;
+    padding: 10px !important;
 }
 
 footer .flex:last-child a:hover {
