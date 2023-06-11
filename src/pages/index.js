@@ -19,7 +19,7 @@ const Home = () => {
     fetch('/api/work/').then((responce) => {
       return responce.json()
     }).then((result) => {
-      setWork(result)
+      setWork(result?.data)
     }).catch(error => {
       console.log(error)
     })

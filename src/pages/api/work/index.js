@@ -129,7 +129,7 @@ async function handler(req, res) {
         })
         res.status(200).json({
             status: true,
-            data: list
+            data: data
         })
     } catch (error) {
         res.status(405).json({
