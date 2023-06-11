@@ -7,13 +7,7 @@ import Image from "next/image"
 import { ButtonSwap } from "@/components/button/Button"
 import YouTubePlayer from "@/components/product/videoPlay";
 import React, { useState } from "react";
-// import CountUp from 'react-countup';
-
-
 const PortfolioSection = ({ work, lastLine }) => {
-
-
-    const [animationDisplayed, setAnimationDisplayed] = useState(false);
     const [isPlay, setIsPlay] = useState(false)
     const [curVideo, setCurVideo] = useState('')
     const handleClose = () => {

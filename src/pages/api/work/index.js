@@ -1,3 +1,4 @@
+// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import connectDB from "@/middleware/connection"
 import recentWorkModel from "@/models/work"
 
@@ -128,13 +129,12 @@ async function handler(req, res) {
         })
         res.status(200).json({
             status: true,
-            data: data
+            data: list
         })
     } catch (error) {
         res.status(405).json({
             status: false,
-            massage: 'Method Not Allowed',
-            data: []
+            massage: 'Method Not Allowed'
         })
     }
 }
