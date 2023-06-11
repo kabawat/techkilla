@@ -13,7 +13,8 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 
-const Home = ({ work }) => {
+const Home = ({ work, error }) => {
+  console.log(error)
   const data = [
     {
       title: 'Microsite design',
@@ -203,13 +204,15 @@ export const getServerSideProps = async () => {
     const data = await res.json()
     return ({
       props: {
-        work: data?.data
+        work: data?.data,
+        error: null
       }
     })
   } catch (error) {
     return ({
       props: {
-        work: []
+        work: [],
+        error
       }
     })
   }
