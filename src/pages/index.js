@@ -14,14 +14,6 @@ import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 
 const Home = ({ work }) => {
-  // const [data, setData] = useState([])
-  // useEffect(() => {
-  //   fetch('/api/home/').then((responce) => {
-  //     return responce.json()
-  //   }).then((result) => {
-  //     setData(result)
-  //   })
-  // }, [])
   const data = [
     {
       title: 'Microsite design',
@@ -206,11 +198,19 @@ const Home = ({ work }) => {
 
 export default Home
 export const getServerSideProps = async () => {
-  const res = await fetch(`${process.env.BaseUrl}/api/work/`)
-  const data = await res.json()
-  return ({
-    props: {
-      work: data?.data
-    }
-  })
+  try {
+    const res = await fetch(`${process.env.BaseUrl}/api/work/`)
+    const data = await res.json()
+    return ({
+      props: {
+        work: data?.data
+      }
+    })
+  } catch (error) {
+    return ({
+      props: {
+        work: []
+      }
+    })
+  }
 }

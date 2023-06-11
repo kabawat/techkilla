@@ -117,24 +117,24 @@ async function handler(req, res) {
             throw new Error(`${req.method} are not allowed`)
         }
         const result = await recentWorkModel.find()
-        console.log("data :", result)
-        // const data = result?.map(item => {
-        //     const filterData = {
-        //         heading: item?.heading,
-        //         logo: process.env.SERVER_URL + item?.logo,
-        //         thumbnail: process.env.SERVER_URL + item?.thumbnail,
-        //         url: item?.url
-        //     }
-        //     return filterData
-        // })
+        const data = result?.map(item => {
+            const filterData = {
+                heading: item?.heading,
+                logo: process.env.SERVER_URL + item?.logo,
+                thumbnail: process.env.SERVER_URL + item?.thumbnail,
+                url: item?.url
+            }
+            return filterData
+        })
         res.status(200).json({
             status: true,
-            data: list
+            data: data
         })
     } catch (error) {
         res.status(405).json({
             status: false,
-            massage: 'Method Not Allowed'
+            massage: 'Method Not Allowed',
+            data: []
         })
     }
 }
