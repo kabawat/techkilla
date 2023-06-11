@@ -7,7 +7,13 @@ import Image from "next/image"
 import { ButtonSwap } from "@/components/button/Button"
 import YouTubePlayer from "@/components/product/videoPlay";
 import React, { useState } from "react";
+// import CountUp from 'react-countup';
+
+
 const PortfolioSection = ({ work, lastLine }) => {
+
+
+    const [animationDisplayed, setAnimationDisplayed] = useState(false);
     const [isPlay, setIsPlay] = useState(false)
     const [curVideo, setCurVideo] = useState('')
     const handleClose = () => {
@@ -37,9 +43,9 @@ const PortfolioSection = ({ work, lastLine }) => {
                 <Swiper
                     slidesPerView={1}
                     spaceBetween={10}
-                    // pagination={{
-                    //     clickable: true,
-                    // }}
+                    pagination={{
+                        clickable: true,
+                    }}
                     breakpoints={{
                         640: {
                             slidesPerView: 1,
@@ -69,7 +75,7 @@ const PortfolioSection = ({ work, lastLine }) => {
                                 <SwiperSlide key={keys} className="">
                                     <div className="work_card">
                                         <div className="work_card_inner">
-                                            <Image src={item?.img} alt={item?.Heading} width={1920} height={1080} />
+                                            <Image src={item?.thumbnail} alt={item?.Heading} width={1920} height={1080} />
                                         </div>
                                         <div className="work_card_layer">
                                             <div>

@@ -3,13 +3,13 @@ const nextConfig = {
   reactStrictMode: true,
   trailingSlash: true,
   images: {
-    unoptimized: true
+    unoptimized: true,
+    domains: ['localhost', 'admin-server-topaz.vercel.app', 'https://admin-server-topaz.vercel.app/', 'https://socket-server-mwbe.onrender.com'],
+    // Add any additional domains if needed
   },
-}
-
-module.exports = nextConfig
-module.exports = {
   publicRuntimeConfig: {
     BaseUrl: process.env.BaseUrl,
   },
 };
+
+module.exports = nextConfig;
