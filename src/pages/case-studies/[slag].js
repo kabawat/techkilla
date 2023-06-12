@@ -254,7 +254,6 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
     try {
         const { slag } = context.params
-        // console.log("slag : ", slag)
         const responce = await fetch(`${process.env.BaseUrl}/api/case-studie/${slag}/`)
         const data = await responce.json()
         return {
@@ -263,7 +262,6 @@ export const getStaticProps = async (context) => {
             }
         }
     } catch (error) {
-        // console.log("error : ", error)
         return {
             props: {
                 caseStudie: {}

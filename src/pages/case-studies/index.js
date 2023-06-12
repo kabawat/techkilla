@@ -8,20 +8,8 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { Col, Container, Pagination, Row } from 'react-bootstrap'
 const CaseStudie = ({ useCase }) => {
-    // const [useCase, setUseCase] = useState([])
+    console.log(useCase)
     const [page, setPage] = useState(0)
-    // useEffect(() => {
-    //     const getdata = async () => {
-    //         const res = await fetch(`/api/case-studie`, {
-    //             body: JSON.stringify(page),
-    //             method: "POST"
-    //         })
-    //         const data = await res.json()
-    //         console.log(data)
-    //         setUseCase(data)
-    //     }
-    //     getdata()
-    // }, [])
     const [completedUseCase, setCompletedUseCase] = useState()
     useEffect(() => {
         const arr = [];
@@ -137,20 +125,6 @@ const CaseStudie = ({ useCase }) => {
 
 export default CaseStudie
 export const getServerSideProps = async () => {
-    // const page = {
-    //     from: 1,
-    //     to: 8
-    // }
-    // const res = await fetch(`${process.env.BaseUrl}/api/case-studie`, {
-    //     body: JSON.stringify(page),
-    //     method: "POST"
-    // })
-    // const data = await res.json()
-    // return ({
-    //     props: {
-    //         useCase: data
-    //     }
-    // })
     try {
         const page = {
             from: 1,
