@@ -23,7 +23,7 @@ const CaseStudieCart = (props) => {
                 </div>
                 <div className="frontBody">
                     <div className="caseStudie__Title">
-                        {/* {heading} */}
+                        {heading}
                     </div>
                     <div className="cs__desc mb-2">
                         <div className="ellipsis">
