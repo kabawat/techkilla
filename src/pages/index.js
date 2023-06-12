@@ -13,17 +13,17 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 
-const Home = () => {
-  const [work, setWork] = useState([])
-  useEffect(() => {
-    fetch('/api/work/').then((responce) => {
-      return responce.json()
-    }).then((result) => {
-      setWork(result?.data)
-    }).catch(error => {
-      console.log(error)
-    })
-  }, [])
+const Home = ({work}) => {
+  // const [work, setWork] = useState([])
+  // useEffect(() => {
+  //   fetch('/api/work/').then((responce) => {
+  //     return responce.json()
+  //   }).then((result) => {
+  //     setWork(result?.data)
+  //   }).catch(error => {
+  //     console.log(error)
+  //   })
+  // }, [])
   const data = [
     {
       title: 'Microsite design',
@@ -207,12 +207,12 @@ const Home = () => {
 }
 
 export default Home
-// export const getServerSideProps = async () => {
-//   const res = await fetch(`${process.env.BaseUrl}/api/work/`)
-//   const data = await res.json()
-//   return ({
-//     props: {
-//       work: data?.data
-//     }
-//   })
-// }
+export const getServerSideProps = async () => {
+  const res = await fetch(`${process.env.BaseUrl}/api/work/`)
+  const data = await res.json()
+  return ({
+    props: {
+      work: data?.data
+    }
+  })
+}
