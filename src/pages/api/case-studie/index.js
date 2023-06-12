@@ -126,7 +126,7 @@ const case_studie = [
 
 const handler = async (req, res) => {
     try {
-        if (req.method !== "POST") {
+        if (req.method !== "GET") {
             throw new Error(`${req?.method} method not allowed`)
         }
         const data = await caseStudieSchema.find({ status: true }, 'main_heading cart_them slag desc video_link')
