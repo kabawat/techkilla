@@ -1,4 +1,4 @@
-// import caseStudieSchema from '@/models/case-studie'
+import caseStudieSchema from '@/models/case-studie'
 const case_studie = [
     {
         id: 1,
@@ -129,27 +129,28 @@ const handler = async (req, res) => {
         if (req.method !== "POST") {
             throw new Error(`${req?.method} method not allowed`)
         }
-        // const data = await caseStudieSchema.find({ status: true }, 'heading cart_them slag desc')
-        // const dataList = data?.map(item => {
-        //     return {
-        //         heading: item?.heading,
-        //         cart_them: process?.env?.SERVER_URL + item?.cart_them,
-        //         slag: item?.slag,
-        //         id: item?.id,
-        //         desc: item?.desc
-        //     }
-        // })
-        // res.status(200).json({
-        //     status: true,
-        //     total: data?.length ? data?.length : 0,
-        //     data: data?.length ? dataList : [],
-        // })
-
+        const data = await caseStudieSchema.find({ status: true }, 'main_heading cart_them slag desc video_link')
+        const dataList = data?.map(item => {
+            return {
+                heading: item?.main_heading,
+                cart_them: process?.env?.SERVER_URL + item?.cart_them,
+                slag: item?.slag,
+                id: item?.id,
+                desc: item?.desc,
+                video_link: item?.video_link
+            }
+        })
         res.status(200).json({
             status: true,
-            total: case_studie?.length,
-            data: case_studie,
+            total: data?.length ? data?.length : 0,
+            data: data?.length ? dataList : [],
         })
+
+        // res.status(200).json({
+        //     status: true,
+        //     total: case_studie?.length,
+        //     data: case_studie,
+        // })
 
     } catch (error) {
         res.status(405).json({

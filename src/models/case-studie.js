@@ -8,7 +8,9 @@ const caseStudieSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-
+    main_heading: {
+        type: String,
+    },
     slag: {
         type: String,
         required: true
@@ -21,6 +23,9 @@ const caseStudieSchema = new mongoose.Schema({
     desc: {
         type: String,
         required: true
+    },
+    video_link: {
+        type: String,
     },
 
     case_studie: [
