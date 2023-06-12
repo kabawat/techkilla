@@ -13,7 +13,7 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 
-const Home = ({work}) => {
+const Home = ({ work }) => {
   // const [work, setWork] = useState([])
   // useEffect(() => {
   //   fetch('/api/work/').then((responce) => {
@@ -208,11 +208,21 @@ const Home = ({work}) => {
 
 export default Home
 export const getServerSideProps = async () => {
-  const res = await fetch(`${process.env.BaseUrl}/api/work/`)
-  const data = await res.json()
-  return ({
-    props: {
-      work: data?.data
+  try {
+    const res = await fetch(`${process.env.BaseUrl}/api/work/`)
+    const data = await res.json()
+    return ({
+      props: {
+        work: data?.data,
+      }
+    })
+  } catch (error) {
+    return {
+      props: {
+        work: [],
+        url: process.env.BaseUrl,
+        error
+      }
     }
-  })
+  }
 }
