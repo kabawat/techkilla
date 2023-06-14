@@ -14,16 +14,6 @@ import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 
 const Home = ({ work }) => {
-  // const [work, setWork] = useState([])
-  // useEffect(() => {
-  //   fetch('/api/work/').then((responce) => {
-  //     return responce.json()
-  //   }).then((result) => {
-  //     setWork(result?.data)
-  //   }).catch(error => {
-  //     console.log(error)
-  //   })
-  // }, [])
   const data = [
     {
       title: 'Microsite design',
