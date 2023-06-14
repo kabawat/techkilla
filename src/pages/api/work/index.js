@@ -121,8 +121,8 @@ async function handler(req, res) {
         const data = result?.map(item => {
             const filterData = {
                 heading: item?.heading,
-                logo: process.env.SERVER_URL + item?.logo,
-                thumbnail: process.env.SERVER_URL + item?.thumbnail,
+                logo: "/recent-work/" + item?.logo,
+                thumbnail: "/recent-work/" + item?.thumbnail,
                 url: item?.url
             }
             return filterData

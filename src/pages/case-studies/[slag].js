@@ -20,7 +20,7 @@ const Page = ({ caseStudie }) => {
 
                         <div className="caseHomePage">
                             <div className="pagebg">
-                                <Image src={caseStudie?.BaseUrl + caseStudie?.data?.cover_page} alt='Excitometer-Tetra Pak' width={1920} height={1080} />
+                                <Image src={'/case-studie-file/' + caseStudie?.data?.cover_page} alt='Excitometer-Tetra Pak' width={1920} height={1080} />
                             </div>
                             <div className="pageText">
                                 <Container>
@@ -45,7 +45,7 @@ const Page = ({ caseStudie }) => {
                                                             <Row className='align-items-center'>
                                                                 <Col xxl={3} xl={3} lg={3} md={4} sm={4} xs={3}>
                                                                     <div className='key-icon'>
-                                                                        <Image src={caseStudie?.BaseUrl + item?.icon} width={80} height={80} />
+                                                                        <Image src={'/case-studie-file/' + item?.icon} width={80} height={80} />
                                                                     </div>
                                                                 </Col>
                                                                 <Col xxl={9} xl={9} lg={9} md={8} sm={8} xs={9}>
@@ -84,14 +84,14 @@ const Page = ({ caseStudie }) => {
                                                 </Col>
                                                 <Col xxl={6} xl={6} lg={6} md={12} sm={12}>
                                                     <div className='caseFullImg'>
-                                                        <Image src={caseStudie?.BaseUrl + item?.thumbnail} alt='What is an excitometer?' width={1920} height={1080} />
+                                                        <Image src={'/case-studie-file/' + item?.thumbnail} alt='What is an excitometer?' width={1920} height={1080} />
                                                     </div>
                                                 </Col>
                                             </Row> : <Row>
 
                                                 <Col xxl={6} xl={6} lg={6} md={12} sm={12}>
                                                     <div className='caseFullImg'>
-                                                        <Image src={caseStudie?.BaseUrl + item?.thumbnail} alt='What is an excitometer?' width={1920} height={1080} />
+                                                        <Image src={'/case-studie-file/' + item?.thumbnail} alt='What is an excitometer?' width={1920} height={1080} />
                                                     </div>
                                                 </Col>
                                                 <Col xxl={6} xl={6} lg={6} md={12} sm={12}>
@@ -159,7 +159,7 @@ const Page = ({ caseStudie }) => {
                                                             <div className="col-qr">
                                                                 <div className="qr-cases">
                                                                     <h3 className="qr-cases-icon">
-                                                                        <Image src={caseStudie?.BaseUrl + curCase.icon} alt={curCase?.heading} width={1920} height={1080} />
+                                                                        <Image src={'/case-studie-file/' + curCase.icon} alt={curCase?.heading} width={1920} height={1080} />
                                                                     </h3>
                                                                     <div className="qr-title">
                                                                         {curCase?.heading}
@@ -222,7 +222,7 @@ const Page = ({ caseStudie }) => {
                             caseStudie?.data?.releted_project?.length && <div className="bgWhite py-5">
                                 <Container>
                                     <div className='use_case_heading'>Related projects</div>
-                                    <SingleCard list={caseStudie?.data?.releted_project} baseUrl={caseStudie?.BaseUrl} />
+                                    <SingleCard list={caseStudie?.data?.releted_project} baseUrl={'/case-studie-file/'} />
                                 </Container>
                             </div>
                         }
@@ -254,7 +254,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
     try {
         const { slag } = context.params
-        const responce = await fetch(`${process.env.BaseUrl}/api/case-studie/${slag}/`)
+        const responce = await fetch(`${process.env.BaseUrl}/api/case-studie-file/${slag}/`)
         const data = await responce.json()
         return {
             props: {

@@ -133,7 +133,7 @@ const handler = async (req, res) => {
         const dataList = data?.map(item => {
             return {
                 heading: item?.main_heading,
-                cart_them: process?.env?.SERVER_URL + item?.cart_them,
+                cart_them: "/case-studie-file/" + item?.cart_them,
                 slag: item?.slag,
                 id: item?.id,
                 desc: item?.desc,

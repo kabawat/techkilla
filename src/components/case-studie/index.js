@@ -32,7 +32,6 @@ const CaseStudieCart = (props) => {
                     </div>
                     <div className="d-flex justify-content-center case-studie-btn">
                         {
-                            // slag ? <Link className="button" href={'/case-studies' + slag}>
                             !video_link ? <Link className="button" href={`/case-studies/${slag}`}>
                                 <span className="button_lg">
                                     <span className="button_sl"></span>
