@@ -8,7 +8,6 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { Col, Container, Pagination, Row } from 'react-bootstrap'
 const CaseStudie = ({ useCase }) => {
-    console.log(useCase)
     const [page, setPage] = useState(0)
     const [completedUseCase, setCompletedUseCase] = useState()
     useEffect(() => {

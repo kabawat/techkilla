@@ -8,7 +8,6 @@ const handler = async (req, res) => {
         }
         if (slag) {
             const data = await caseStudieSchema.findOne({ slag: slag })
-            // console.log("req?.body : ", data)
             res.status(200).json({
                 status: true,
                 data: data,
@@ -21,7 +20,6 @@ const handler = async (req, res) => {
                 BaseUrl: process.env.SERVER_URL
             })
         }
-        // console.log(data)
     } catch (error) {
         res.status(405).json({
             status: false,

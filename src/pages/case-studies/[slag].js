@@ -7,7 +7,6 @@ import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { SiShanghaimetro } from 'react-icons/si'
 const Page = ({ caseStudie }) => {
-    console.log(caseStudie)
     return (
         caseStudie ? <>
             <Head>
@@ -236,10 +235,24 @@ const Page = ({ caseStudie }) => {
 
 export default Page
 
-export const getServerSideProps = async (context) => {
+export const getStaticPaths = async () => {
+
+    return {
+        paths: [
+            {
+                params: {
+                    slag: '/From-Challenge-to-Triumph/',
+                },
+            }, // See the "paths" section below
+        ],
+        fallback: true, // false or "blocking"
+    }
+}
+
+export const getStaticProps = async (context) => {
     try {
         const { slag } = context.params
-        const responce = await fetch(`${process.env.BaseUrl}/api/case-studie-file/${slag}/`)
+        const responce = await fetch(`${process.env.BaseUrl}/api/case-studie/${slag}/`)
         const data = await responce.json()
         return {
             props: {

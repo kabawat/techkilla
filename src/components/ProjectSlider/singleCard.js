@@ -7,7 +7,6 @@ import Image from "next/image";
 import YouTubePlayer from "../product/videoPlay";
 
 export default function SingleCard({ list, baseUrl }) {
-  console.log(list)
   const [isPlay, setIsPlay] = useState(false)
   const [curVideo, setCurVideo] = useState('')
   const handleClose = () => {
