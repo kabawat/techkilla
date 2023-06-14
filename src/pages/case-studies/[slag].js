@@ -236,22 +236,7 @@ const Page = ({ caseStudie }) => {
 
 export default Page
 
-export const getStaticPaths = async () => {
-    // const result = await responce?.json()
-    // console.log(result)
-    return {
-        paths: [
-            {
-                params: {
-                    slag: '/From-Challenge-to-Triumph/',
-                },
-            }, // See the "paths" section below
-        ],
-        fallback: true, // false or "blocking"
-    }
-}
-
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
     try {
         const { slag } = context.params
         const responce = await fetch(`${process.env.BaseUrl}/api/case-studie-file/${slag}/`)
