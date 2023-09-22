@@ -2,7 +2,7 @@ import Footer from '@/components/footer'
 import Header from '@/components/header'
 import Head from 'next/head';
 import React from 'react'
-import ContactFrom from './ContactForm';
+import ContactFrom from '@/components/contect/ContactForm';
 import ColLeft from '@/components/home/section2/left';
 import axios from 'axios';
 
@@ -30,7 +30,6 @@ const Contact = ({ BaseUrl }) => {
                                     <div className="hero ">
                                         <ColLeft />
                                     </div>
-
                                 </div>
                                 <div className="col-lg-6 contact-form">
                                     <ContactFrom send={send} />

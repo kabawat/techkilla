@@ -134,6 +134,8 @@ function ChatBoat() {
         .then(async (res) => {
           addResponseMessage(res.data);
           addLinkSnippet({ title: "Looking for more info? Connect with us and our team of experts will help with all your queries", link: "https://wa.me/917827362702?text=" + newMessage, target: "_blank" });
+
+          // console.log(res);
         })
         .catch((err) => {
           console.log("error");

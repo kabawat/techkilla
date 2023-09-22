@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Col, Container, Row, } from 'react-bootstrap'
 import QrForm from '@/components/contect/FormQR'
 import Image from 'next/image'
 import Footer01 from '@/components/footer/footer_01'
+import { HiOutlineMail } from 'react-icons/hi'
+import { GiSmartphone } from 'react-icons/gi'
+import axios from 'axios'
 const funData = [
     {
         title: 'Form to sign up for an event or campaign',
@@ -153,22 +156,36 @@ const choose_list = [
         img: '/microsite/choose_05.png'
     },
 ]
-const App = () => {
+
+const App = ({ BaseUrl }) => {
+    const send = async (contact) => {
+        try {
+            const reponce = await axios.post(`${BaseUrl}/api/email/contect`, contact)
+            return true
+        } catch (error) {
+            return false;
+        }
+    };
+
     return (
         <>
             <div className="main">
-                <div className='d-flex justify-content-between align-items-center py-1 px-3 qr-header'>
-                    <div className="qr-logo">
-                        <Image src="/logo/logo.png" width={70} height={70} />
-                    </div>
-                    <div className="d-flex">
-                        <div className='text-dark'>
-                            <strong>Email</strong> : example@gmail.com
+                <div className='row align-items-center py-1 px-3 qr-header'>
+                    <Col xxl={2} xl={2} lg={2} md={2} sm={2} xs={2}>
+                        <div className="qr-logo">
+                            <Image src="/logo/logo.png" width={70} height={70} />
                         </div>
-                        <div className='px-4 text-dark'>
-                            <strong>Phone</strong> : +91 9878457645
+                    </Col>
+                    <Col xxl={10} xl={10} lg={10} md={10} sm={10} xs={10}>
+                        <div className="d-flex justify-content-end flex-wrap">
+                            <div className='text-dark context-id ' >
+                                <strong><HiOutlineMail /></strong> Contact@techkilla.com
+                            </div>
+                            <div className='text-dark context-id' id='context-id'>
+                                <strong><GiSmartphone /></strong> +91-7827362702
+                            </div>
                         </div>
-                    </div>
+                    </Col>
                 </div>
                 <div className="mainContainer">
                     <div className="contact container-fluid">
@@ -180,7 +197,7 @@ const App = () => {
 
                             </div>
                             <div className="col-lg-6 contact-form">
-                                <QrForm />
+                                <QrForm send={send} />
                             </div>
                         </div>
                     </div>
@@ -346,7 +363,7 @@ const App = () => {
                     </div>
                 </div>
             </div>
-                <Footer01/>
+            <Footer01 />
             {/* <div className="qr-footer bg-dark py-5">
             </div> */}
         </>
@@ -354,3 +371,11 @@ const App = () => {
 }
 
 export default App
+
+export const getStaticProps = async () => {
+    return {
+        props: {
+            BaseUrl: process.env.BaseUrl
+        }
+    }
+}

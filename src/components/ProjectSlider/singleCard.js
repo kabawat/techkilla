@@ -4,9 +4,10 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper";
 import Image from "next/image";
+import Link from "next/link";
 import YouTubePlayer from "../product/videoPlay";
 
-export default function SingleCard({ list, baseUrl }) {
+export default function SingleCard({ list }) {
   const [isPlay, setIsPlay] = useState(false)
   const [curVideo, setCurVideo] = useState('')
   const handleClose = () => {
@@ -51,7 +52,7 @@ export default function SingleCard({ list, baseUrl }) {
               return <SwiperSlide key={index}>
                 <div className="swiperCart">
                   <div className="backLyer">
-                    <Image src={baseUrl ? baseUrl + item?.thumbnail : item.them} alt={baseUrl ? item?.heading : item.title} width={1920} height={1080} />
+                    <Image src={item.them} alt={item.title} width={1920} height={1080} />
                   </div>
                   <div className="lyear">
                     <button onClick={() => {
@@ -60,7 +61,7 @@ export default function SingleCard({ list, baseUrl }) {
                         setCurVideo(item?.url)
                       }
                     }}>
-                      {baseUrl ? item?.heading : item.title}
+                      {item.title}
                     </button>
                   </div>
                 </div>

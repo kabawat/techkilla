@@ -121,15 +121,15 @@ async function handler(req, res) {
         const data = result?.map(item => {
             const filterData = {
                 heading: item?.heading,
-                logo: "/recent-work/" + item?.logo,
-                thumbnail: "/recent-work/" + item?.thumbnail,
+                logo: process.env.SERVER_URL + item?.logo,
+                thumbnail: process.env.SERVER_URL + item?.thumbnail,
                 url: item?.url
             }
             return filterData
         })
         res.status(200).json({
             status: true,
-            data: data
+            data: list
         })
     } catch (error) {
         res.status(405).json({
